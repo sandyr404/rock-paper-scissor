@@ -32,12 +32,11 @@ function getHumanChoice() {
 
 let humanScore = 0;
 let computerScore = 0;
+let result;
 
 // GAMEPLAY LOGIC
 
 function playRound(humanChoice, computerChoice) {
-  let result;
-
   if (
     (humanChoice == "ROCK" && computerChoice == "ROCK") ||
     (humanChoice == "PAPER" && computerChoice == "PAPER") ||
@@ -80,17 +79,29 @@ function playRound(humanChoice, computerChoice) {
   }
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+const humanSelection = getHumanChoice;
+const computerSelection = getComputerChoice;
 
-// playRound(humanSelection, computerSelection);
-
-// TO PLAY GAME 5 ROUNDS
+// TO PLAY 5 TIMES
 
 function playGame() {
-  for (let count = 0; count < 5; count++) {
-    playRound(humanSelection, computerSelection);
-  }
+  humanScore = humanScore;
+  computerScore = computerScore;
+  return playRound(humanSelection(), computerSelection());
 }
 
 playGame();
+playGame();
+playGame();
+playGame();
+playGame();
+
+// to announce winner
+
+if (humanScore > computerScore) {
+  console.log("Final Result : You are Winner.");
+} else if (humanScore < computerScore) {
+  console.log("Final Result : Computer is winner.");
+} else {
+  console.log("Final Result : Its a tie...");
+}
